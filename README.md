@@ -10,6 +10,7 @@ A full-stack book catalog application built with Next.js, TypeScript, PostgreSQL
 - 📱 **Mobile Responsive**: Optimized for mobile and desktop
 - 🌙 **Dark/Light Theme**: Theme switching functionality
 - 🔍 **Search & Filter**: Search books by title/author and filter by genre
+- 👤 **User Profile**: View user details and book statistics
 - 🗄️ **Database**: PostgreSQL with Prisma ORM
 
 ## Tech Stack
@@ -33,8 +34,8 @@ A full-stack book catalog application built with Next.js, TypeScript, PostgreSQL
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd book-catalog-app
+git clone https://github.com/Abduullaahh/Book-Catalog-App.git
+cd Book-Catalog-App
 ```
 
 ### 2. Install dependencies
@@ -87,6 +88,8 @@ npx prisma generate
 npx prisma db push
 ```
 
+**Note**: The Prisma client is automatically generated during the build process via the `postinstall` script.
+
 ### 7. Run the development server
 
 ```bash
@@ -107,8 +110,9 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 1. **Email/Password**: Users can sign in with any email and password "password123" (demo mode)
 2. **Google OAuth**: Users can sign in with their Google account
-3. **Session Management**: JWT-based sessions with NextAuth.js
-4. **Protected Routes**: All book operations require authentication
+3. **Registration**: New users can register with email and password
+4. **Session Management**: JWT-based sessions with NextAuth.js
+5. **Protected Routes**: All book operations require authentication
 
 ## Project Structure
 
@@ -117,12 +121,11 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 │   ├── api/               # API routes
 │   │   ├── auth/          # NextAuth routes
 │   │   └── books/         # Books API
-│   ├── auth/              # Authentication pages
 │   ├── add/               # Add book page
+│   ├── dashboard/         # Dashboard page
 │   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
+│   └── page.tsx           # Home page (login/register)
 ├── components/            # React components
-│   ├── auth/             # Authentication components
 │   ├── books/            # Book-related components
 │   ├── layout/           # Layout components
 │   └── ui/               # Reusable UI components
@@ -139,7 +142,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ```bash
 git add .
 git commit -m "Initial commit"
-git push origin main
+git push origin master
 ```
 
 ### 2. Deploy to Vercel
@@ -155,7 +158,6 @@ Add the same environment variables from your `.env.local` file to the Vercel das
 
 - `DATABASE_URL`
 - `NEXTAUTH_SECRET`
-- `NEXTAUTH_URL` (set to your Vercel domain)
 - `GOOGLE_CLIENT_ID`
 - `GOOGLE_CLIENT_SECRET`
 
@@ -167,50 +169,5 @@ Add your Vercel domain to Google OAuth authorized redirect URIs:
 ## Demo Credentials
 
 For testing purposes, you can use:
-- **Email**: Any valid email format
-- **Password**: `password123`
-
-## Features Implemented
-
-✅ **Backend API** (Next.js + Prisma) - 25%
-- Complete CRUD operations for books
-- User authentication and authorization
-- Database integration with PostgreSQL
-
-✅ **Authentication** (NextAuth.js) - 30%
-- Email/password authentication
-- Google OAuth integration
-- Session management
-- Protected routes
-
-✅ **TypeScript Usage** - 15%
-- Full TypeScript implementation
-- Type-safe API calls
-- Proper type definitions
-
-✅ **Code Structure & Organization** - 15%
-- Clean folder structure
-- Modular components
-- Reusable hooks and utilities
-
-✅ **UI Design & UX** - 10%
-- Modern, responsive design
-- Dark/light theme support
-- Mobile-first approach
-- Smooth animations and transitions
-
-✅ **Deployment** - 5%
-- Vercel deployment ready
-- Environment variable configuration
-- Production database setup
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.
+- **Email**: someuser@bookcatalog.com
+- **Password**: `123456`
