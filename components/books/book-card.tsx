@@ -66,19 +66,19 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                       <BookOpen className="h-5 w-5 text-muted-foreground/50" />
                     </div>
                   )}
-                                     <Image
-                      src={book.coverUrl || "/placeholder.svg"}
-                      alt={`${book.title} cover`}
-                      fill
-                      className={`object-cover transition-opacity duration-300 ${
-                        imageLoading ? "opacity-0" : "opacity-100"
+                  <Image
+                    src={book.coverUrl || "/placeholder.svg"}
+                    alt={`${book.title} cover`}
+                    width={64}
+                    height={88}
+                    className={`object-cover transition-opacity duration-300 ${imageLoading ? "opacity-0" : "opacity-100"
                       }`}
-                      onLoad={() => setImageLoading(false)}
-                      onError={() => {
-                        setImageError(true)
-                        setImageLoading(false)
-                      }}
-                    />
+                    onLoad={() => setImageLoading(false)}
+                    onError={() => {
+                      setImageError(true)
+                      setImageLoading(false)
+                    }}
+                  />
                 </>
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
@@ -123,12 +123,13 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                     <div className="flex gap-6">
                       <div className="flex-shrink-0">
                         <div className="w-32 h-44 bg-muted rounded-lg overflow-hidden shadow-md">
-                                                     <Image
-                              src={book.coverUrl || "/placeholder.svg"}
-                              alt={`${book.title} cover`}
-                              fill
-                              className="object-cover"
-                            />
+                          <Image
+                            src={book.coverUrl || "/placeholder.svg"}
+                            alt={`${book.title} cover`}
+                            width={128}
+                            height={176}
+                            className="object-cover w-full h-full"
+                          />
                         </div>
                       </div>
                       <div className="flex-1 space-y-4">
@@ -175,9 +176,9 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                 <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>Delete Book</AlertDialogTitle>
-                                          <AlertDialogDescription>
-                        Are you sure you want to delete &quot;{book.title}&quot;? This action cannot be undone.
-                      </AlertDialogDescription>
+                    <AlertDialogDescription>
+                      Are you sure you want to delete &quot;{book.title}&quot;? This action cannot be undone.
+                    </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
