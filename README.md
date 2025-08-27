@@ -1,27 +1,30 @@
 # Book Catalog App
 
-A full-stack book catalog application built with Next.js, TypeScript, PostgreSQL, Prisma ORM, and NextAuth.js for user authentication.
+A full-stack book catalog application built with Next.js, TypeScript, PostgreSQL, Prisma ORM, and NextAuth.js for user authentication. Features a modular, scalable architecture with clean separation of concerns.
 
 ## Features
 
 - 🔐 **Authentication**: Email/password and Google OAuth using NextAuth.js
-- 📚 **Book Management**: Add, view, and delete books
-- 🎨 **Modern UI**: Beautiful responsive design with Tailwind CSS
-- 📱 **Mobile Responsive**: Optimized for mobile and desktop
-- 🌙 **Dark/Light Theme**: Theme switching functionality
-- 🔍 **Search & Filter**: Search books by title/author and filter by genre
-- 👤 **User Profile**: View user details and book statistics
-- 🗄️ **Database**: PostgreSQL with Prisma ORM
+- 📚 **Book Management**: Add, view, and delete books with advanced filtering
+- 🎨 **Modern UI**: Beautiful responsive design with Tailwind CSS and Radix UI
+- 📱 **Mobile Responsive**: Optimized for mobile and desktop devices
+- 🌙 **Dark/Light Theme**: Theme switching functionality with persistent state
+- 🔍 **Advanced Search & Filter**: Search books by title/author, filter by genre, rating, and year
+- 👤 **User Profile**: View user details, book statistics, and account information
+- 🗄️ **Database**: PostgreSQL with Prisma ORM for type-safe database operations
+- 🏗️ **Modular Architecture**: Clean, maintainable codebase with reusable components
+- ⚡ **Performance Optimized**: Server components, code splitting, and efficient rendering
 
 ## Tech Stack
 
 - **Frontend**: Next.js 15 (App Router) + TypeScript
 - **Backend**: Next.js API Routes
-- **Authentication**: NextAuth.js (Email/Password, Google)
+- **Authentication**: NextAuth.js (Email/Password, Google OAuth)
 - **Database**: PostgreSQL (hosted via Neon)
-- **ORM**: Prisma
-- **Styling**: Tailwind CSS
-- **Deployment**: Vercel
+- **ORM**: Prisma with type-safe database operations
+- **Styling**: Tailwind CSS + Radix UI components
+- **State Management**: React hooks and context
+- **Deployment**: Vercel with automatic builds and type checking
 
 ## Prerequisites
 
@@ -121,18 +124,76 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 │   ├── api/               # API routes
 │   │   ├── auth/          # NextAuth routes
 │   │   └── books/         # Books API
-│   ├── add/               # Add book page
-│   ├── dashboard/         # Dashboard page
+│   ├── (protected)/       # Protected route group
+│   │   ├── add/           # Add book page
+│   │   └── dashboard/     # Dashboard page
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page (login/register)
 ├── components/            # React components
+│   ├── auth/             # Authentication components
+│   │   ├── auth-actions.tsx
+│   │   ├── auth-fields.tsx
+│   │   ├── auth-form.tsx
+│   │   ├── auth-header.tsx
+│   │   ├── auth-toggle.tsx
+│   │   ├── sign-in-form.tsx
+│   │   └── success-message.tsx
 │   ├── books/            # Book-related components
+│   │   ├── add-book-form.tsx
+│   │   ├── book-actions.tsx
+│   │   ├── book-card.tsx
+│   │   ├── book-cover.tsx
+│   │   ├── book-dialog.tsx
+│   │   ├── book-grid.tsx
+│   │   ├── book-metadata.tsx
+│   │   ├── book-table.tsx
+│   │   ├── books-grid.tsx
+│   │   ├── books-page.tsx
+│   │   ├── delete-book-button.tsx
+│   │   ├── form-actions.tsx
+│   │   ├── form-fields.tsx
+│   │   ├── form-section.tsx
+│   │   └── rating-display.tsx
 │   ├── layout/           # Layout components
+│   │   ├── sidebar.tsx
+│   │   └── user-details-popup.tsx
 │   └── ui/               # Reusable UI components
+│       ├── alert-dialog.tsx
+│       ├── badge.tsx
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── dialog.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── pagination.tsx
+│       ├── select.tsx
+│       ├── separator.tsx
+│       ├── table.tsx
+│       ├── textarea.tsx
+│       ├── theme-toggle.tsx
+│       ├── search-bar.tsx
+│       ├── view-toggle.tsx
+│       ├── pagination-controls.tsx
+│       └── results-count.tsx
 ├── hooks/                # Custom React hooks
-├── lib/                  # Utility functions
+│   ├── use-auth-nextauth.tsx
+│   ├── use-books.ts
+│   ├── use-mobile.ts
+│   └── use-registration.ts
+├── lib/                  # Utility functions and configurations
+│   ├── auth-config.ts
+│   ├── books.ts
+│   ├── constants.ts
+│   ├── prisma.ts
+│   ├── utils.ts
+│   └── utils/
+│       ├── date.ts
+│       ├── index.ts
+│       └── validation.ts
 ├── prisma/               # Database schema and migrations
+│   └── schema.prisma
 └── types/                # TypeScript type definitions
+    └── index.ts
 ```
 
 ## Deployment
