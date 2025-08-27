@@ -23,10 +23,6 @@ export type User = {
   updatedAt: Date
 }
 
-export type BookWithUser = Book & {
-  user: User
-}
-
 export type CreateBookInput = {
   title: string
   author: string
@@ -36,12 +32,4 @@ export type CreateBookInput = {
   publishedYear?: number
   isbn?: string
   rating?: number
-}
-
-export type UpdateBookInput = Partial<CreateBookInput>
-
-export type ApiResponse<T = any> = {
-  data?: T
-  error?: string
-  message?: string
 }

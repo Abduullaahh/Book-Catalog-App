@@ -1,0 +1,20 @@
+// Re-export all existing UI components
+export * from "./alert-dialog"
+export * from "./badge"
+export * from "./button"
+export * from "./card"
+export * from "./dialog"
+export * from "./input"
+export * from "./label"
+export * from "./pagination"
+export * from "./select"
+export * from "./separator"
+export * from "./table"
+export * from "./textarea"
+export * from "./theme-toggle"
+
+// New modular components
+export * from "./search-bar"
+export * from "./view-toggle"
+export * from "./pagination-controls"
+export * from "./results-count"

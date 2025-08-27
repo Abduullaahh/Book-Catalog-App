@@ -1,5 +1,3 @@
-"use client"
-
 import { BooksPage } from "@/components/books/books-page"
 import { Sidebar } from "@/components/layout/sidebar"
 
