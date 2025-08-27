@@ -69,8 +69,7 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                   <Image
                     src={book.coverUrl || "/placeholder.svg"}
                     alt={`${book.title} cover`}
-                    width={64}
-                    height={88}
+                    fill
                     className={`object-cover transition-opacity duration-300 ${imageLoading ? "opacity-0" : "opacity-100"
                       }`}
                     onLoad={() => setImageLoading(false)}
