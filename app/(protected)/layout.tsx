@@ -21,7 +21,6 @@ export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
     }
   }, [isAuthenticated, loading, router, hasRedirected])
 
-  // Show loading state
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/20">
@@ -33,7 +32,6 @@ export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
     )
   }
 
-  // Don't render if not authenticated
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/20">

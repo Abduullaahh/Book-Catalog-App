@@ -2,7 +2,6 @@ import { withAuth } from "next-auth/middleware"
 
 export default withAuth(
   function middleware(req) {
-    // Middleware will automatically redirect to signin if not authenticated
   },
   {
     callbacks: {

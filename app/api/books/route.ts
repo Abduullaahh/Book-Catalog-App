@@ -41,7 +41,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { title, author, description, genre, coverUrl, publishedYear, isbn, rating } = body
 
-    // Validation
     if (!title || !author || !description || !genre) {
       return NextResponse.json(
         { error: "Missing required fields" },

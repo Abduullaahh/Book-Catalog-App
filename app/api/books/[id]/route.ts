@@ -15,7 +15,6 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    // Find the book and check ownership
     const book = await prisma.book.findUnique({
       where: { id }
     })
@@ -28,7 +27,6 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    // Delete the book
     await prisma.book.delete({
       where: { id }
     })

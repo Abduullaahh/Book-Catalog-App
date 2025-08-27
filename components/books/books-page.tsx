@@ -13,10 +13,8 @@ export function BooksPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [genreFilter, setGenreFilter] = useState("all")
 
-  // Get unique genres for filter
   const genres = Array.from(new Set(books.map((book) => book.genre))).sort()
 
-  // Filter books based on search and genre
   const filteredBooks = books.filter((book) => {
     const matchesSearch =
       book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

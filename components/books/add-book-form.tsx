@@ -112,7 +112,6 @@ export function AddBookForm({ onSuccess }: AddBookFormProps) {
 
       setSuccess(true)
 
-      // Reset form after delay
       setTimeout(() => {
         setFormData({
           title: "",
@@ -136,7 +135,6 @@ export function AddBookForm({ onSuccess }: AddBookFormProps) {
 
   const handleInputChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
-    // Clear error when user starts typing
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: "" }))
     }

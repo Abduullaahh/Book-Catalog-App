@@ -1,6 +1,3 @@
-// Prisma types are generated at build time
-// We'll define our own types that match the Prisma schema
-
 export type Book = {
   id: string
   title: string

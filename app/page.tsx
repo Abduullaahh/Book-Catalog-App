@@ -84,7 +84,6 @@ export default function SignInPage() {
 
         if (result.success) {
           setRegistrationSuccess(true)
-          // Reset form and show login mode
           setTimeout(() => {
             setIsRegisterMode(false)
             setFormData({ name: "", email: "", password: "", confirmPassword: "" })
@@ -125,7 +124,6 @@ export default function SignInPage() {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
-    // Clear error when user starts typing
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: "" }))
     }
