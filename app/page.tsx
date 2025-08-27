@@ -110,14 +110,10 @@ export default function SignInPage() {
   const handleGoogleLogin = async () => {
     setIsSubmitting(true)
     try {
-                    const result = await loginWithGoogle()
-              if (result?.ok) {
-                router.replace("/dashboard")
-              }
+      await loginWithGoogle()
     } catch (error) {
       console.error("Google login error:", error)
       setErrors({ password: "Google login failed. Please try again." })
-    } finally {
       setIsSubmitting(false)
     }
   }

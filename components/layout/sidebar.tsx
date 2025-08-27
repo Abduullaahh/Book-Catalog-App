@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { CustomThemeToggle } from "@/components/ui/custom-theme-toggle"
+import { CustomThemeToggle } from "@/components/ui/theme-toggle"
 import { UserDetailsPopup } from "@/components/layout/user-details-popup"
 import { useAuthNextAuth } from "@/hooks/use-auth-nextauth"
 import { BookOpen, Plus, User, LogOut, Menu, X } from "lucide-react"

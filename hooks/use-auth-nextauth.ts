@@ -15,10 +15,13 @@ export function useAuthNextAuth() {
   }
 
   const loginWithGoogle = async () => {
-    const result = await signIn("google", {
-      redirect: false,
-    })
-    return result
+    try {
+      await signIn("google")
+      return { ok: true }
+    } catch (error) {
+      console.error("Google signIn error:", error)
+      return { ok: false, error: error instanceof Error ? error.message : 'Unknown error' }
+    }
   }
 
   const logout = async () => {
