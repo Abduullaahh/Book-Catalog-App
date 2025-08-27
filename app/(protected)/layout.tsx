@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { ReactNode } from "react"
 
-interface AddLayoutProps {
+interface ProtectedLayoutProps {
   children: ReactNode
 }
 
-export default function AddLayout({ children }: AddLayoutProps) {
+export default function ProtectedLayout({ children }: ProtectedLayoutProps) {
   const { isAuthenticated, loading } = useAuthNextAuth()
   const router = useRouter()
   const [hasRedirected, setHasRedirected] = useState(false)
