@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardAction } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -65,18 +66,19 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                       <BookOpen className="h-5 w-5 text-muted-foreground/50" />
                     </div>
                   )}
-                  <img
-                    src={book.coverUrl || "/placeholder.svg"}
-                    alt={`${book.title} cover`}
-                    className={`w-full h-full object-cover transition-opacity duration-300 ${
-                      imageLoading ? "opacity-0" : "opacity-100"
-                    }`}
-                    onLoad={() => setImageLoading(false)}
-                    onError={() => {
-                      setImageError(true)
-                      setImageLoading(false)
-                    }}
-                  />
+                                     <Image
+                      src={book.coverUrl || "/placeholder.svg"}
+                      alt={`${book.title} cover`}
+                      fill
+                      className={`object-cover transition-opacity duration-300 ${
+                        imageLoading ? "opacity-0" : "opacity-100"
+                      }`}
+                      onLoad={() => setImageLoading(false)}
+                      onError={() => {
+                        setImageError(true)
+                        setImageLoading(false)
+                      }}
+                    />
                 </>
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
@@ -121,11 +123,12 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                     <div className="flex gap-6">
                       <div className="flex-shrink-0">
                         <div className="w-32 h-44 bg-muted rounded-lg overflow-hidden shadow-md">
-                          <img
-                            src={book.coverUrl || "/placeholder.svg"}
-                            alt={`${book.title} cover`}
-                            className="w-full h-full object-cover"
-                          />
+                                                     <Image
+                              src={book.coverUrl || "/placeholder.svg"}
+                              alt={`${book.title} cover`}
+                              fill
+                              className="object-cover"
+                            />
                         </div>
                       </div>
                       <div className="flex-1 space-y-4">
@@ -172,9 +175,9 @@ export function BookCard({ book, onDelete }: BookCardProps) {
                 <AlertDialogContent>
                   <AlertDialogHeader>
                     <AlertDialogTitle>Delete Book</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      Are you sure you want to delete "{book.title}"? This action cannot be undone.
-                    </AlertDialogDescription>
+                                          <AlertDialogDescription>
+                        Are you sure you want to delete &quot;{book.title}&quot;? This action cannot be undone.
+                      </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>

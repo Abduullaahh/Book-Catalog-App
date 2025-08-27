@@ -174,7 +174,7 @@ export function AddBookForm({ onSuccess }: AddBookFormProps) {
                   <CheckCircle className="h-8 w-8 text-green-600" />
                 </div>
                 <p className="text-muted-foreground">
-                  "{formData.title}" by {formData.author} has been successfully added to your library.
+                  &quot;{formData.title}&quot; by {formData.author} has been successfully added to your library.
                 </p>
               </div>
             </div>

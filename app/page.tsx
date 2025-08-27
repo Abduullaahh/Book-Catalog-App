@@ -15,7 +15,6 @@ export default function SignInPage() {
   const { register } = useRegistration()
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [shouldRedirect, setShouldRedirect] = useState(false)
   const [isRegisterMode, setIsRegisterMode] = useState(false)
   const [registrationSuccess, setRegistrationSuccess] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
@@ -95,10 +94,9 @@ export default function SignInPage() {
       } else {
         const result = await login(formData.email.trim(), formData.password)
 
-        if (result?.ok) {
-          setShouldRedirect(true)
-          router.replace("/dashboard")
-        } else {
+                        if (result?.ok) {
+                  router.replace("/dashboard")
+                } else {
           setErrors({ password: "Invalid email or password" })
         }
       }
@@ -113,11 +111,10 @@ export default function SignInPage() {
   const handleGoogleLogin = async () => {
     setIsSubmitting(true)
     try {
-      const result = await loginWithGoogle()
-      if (result?.ok) {
-        setShouldRedirect(true)
-        router.replace("/dashboard")
-      }
+                    const result = await loginWithGoogle()
+              if (result?.ok) {
+                router.replace("/dashboard")
+              }
     } catch (error) {
       console.error("Google login error:", error)
       setErrors({ password: "Google login failed. Please try again." })

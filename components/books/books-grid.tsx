@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import type { Book } from "@/types"
 import { BookCard } from "./book-card"
 import { Button } from "@/components/ui/button"
@@ -75,9 +76,9 @@ export function BooksGrid({ books, onDeleteBook }: BooksGridProps) {
           <BookOpen className="h-10 w-10 text-primary/70" />
         </div>
         <h3 className="text-xl font-semibold text-foreground mb-2">No books yet</h3>
-        <p className="text-muted-foreground max-w-sm leading-relaxed">
-          Start building your library by adding your first book. Click "Add Book" to get started.
-        </p>
+                  <p className="text-muted-foreground max-w-sm leading-relaxed">
+            Start building your library by adding your first book. Click &quot;Add Book&quot; to get started.
+          </p>
       </div>
     )
   }
@@ -150,11 +151,13 @@ export function BooksGrid({ books, onDeleteBook }: BooksGridProps) {
                 <TableCell>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-14 bg-muted rounded overflow-hidden flex-shrink-0">
-                      <img
-                        src={book.coverUrl || "/placeholder.svg"}
-                        alt={`${book.title} cover`}
-                        className="w-full h-full object-cover"
-                      />
+                                             <Image
+                          src={book.coverUrl || "/placeholder.svg"}
+                          alt={`${book.title} cover`}
+                          width={40}
+                          height={56}
+                          className="object-cover"
+                        />
                     </div>
                     <div>
                       <div className="font-medium line-clamp-1">{book.title}</div>

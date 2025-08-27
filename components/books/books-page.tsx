@@ -6,7 +6,7 @@ import { BooksGrid } from "./books-grid"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { Search, Filter, BookOpen } from "lucide-react"
+import { Search, Filter } from "lucide-react"
 
 export function BooksPage() {
   const { books, loading, deleteBook } = useBooks()

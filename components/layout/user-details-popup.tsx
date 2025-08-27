@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -9,9 +10,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { User, Mail, BookOpen, Calendar, User as UserIcon } from "lucide-react"
+import { User, Mail, BookOpen, User as UserIcon } from "lucide-react"
 import { useAuthNextAuth } from "@/hooks/use-auth-nextauth"
 import { useBooks } from "@/hooks/use-books"
 
@@ -42,17 +42,19 @@ export function UserDetailsPopup({ children }: UserDetailsPopupProps) {
         <div className="space-y-6">
           {/* User Avatar and Basic Info */}
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-sm">
-              {user?.image ? (
-                <img 
-                  src={user.image} 
-                  alt={user.name || "User"} 
-                  className="w-16 h-16 rounded-full object-cover"
-                />
-              ) : (
-                <User className="h-8 w-8 text-primary-foreground" />
-              )}
-            </div>
+                          <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-sm">
+                {user?.image ? (
+                  <Image 
+                    src={user.image} 
+                    alt={user.name || "User"} 
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                ) : (
+                  <User className="h-8 w-8 text-primary-foreground" />
+                )}
+              </div>
             <div className="flex-1">
               <h3 className="text-lg font-semibold">{user?.name || "Unknown User"}</h3>
               <p className="text-sm text-muted-foreground">{user?.email}</p>
