@@ -9,7 +9,7 @@
     "start": "next start",
     "type-check": "tsc --noEmit",
     "prebuild": "npm run type-check && npm run lint",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.15.0",
@@ -44,6 +44,7 @@
     "eslint": "^9.34.0",
     "eslint-config-next": "^15.5.2",
     "postcss": "^8.5",
+    "prisma": "^6.15.0",
     "tailwindcss": "^4.1.9",
     "typescript": "^5"
   }
